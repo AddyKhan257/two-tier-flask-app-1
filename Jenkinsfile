@@ -38,5 +38,22 @@ pipeline{
                 }
         }
     }
-
+post{
+    success{
+        script{
+            emailext from: 'ddrtkhan@gmail.com',
+            to: 'addynohara48@gmail.com',
+            subject: 'jenkins pipeline update ✅ ',
+            body: 'your demo cicd pipeline build successfully'
+        }
+    }
+    failure{
+         script{
+            emailext from: 'ddrtkhan@gmail.com',
+            to: 'addynohara48@gmail.com',
+            subject: 'jenkins pipeline update❌',
+             body: 'your cicd demo app build was failed'
+        }
+    }
+}
 }
